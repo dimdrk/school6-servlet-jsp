@@ -15,7 +15,7 @@ public class TeacherDAOImpl implements ITeacherDAO {
 
     @Override
     public Teacher insert(Teacher teacher) throws TeacherDAOException {
-        String sql = "INSERT INTO teachers (first_name, last_name) VALUES (?, ?)";
+        String sql = "INSERT INTO teachers (firstname, lastname) VALUES (?, ?)";
 
         try (Connection connection = DBUtil.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -39,7 +39,7 @@ public class TeacherDAOImpl implements ITeacherDAO {
 
     @Override
     public Teacher update(Teacher teacher) throws TeacherDAOException {
-        String sql = "UPDATE teachers set first_name = ?, last_name = ? where id = ?";
+        String sql = "UPDATE teachers set firstname = ?, lastname = ? where id = ?";
 
         try (Connection connection = DBUtil.getConnection();
              PreparedStatement ps = connection.prepareStatement(sql)) {
