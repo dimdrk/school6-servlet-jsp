@@ -1,6 +1,5 @@
 package gr.aueb.cf.schoolapp.dao;
 
-import gr.aueb.cf.schoolapp.dao.exception.TeacherDAOException;
 import gr.aueb.cf.schoolapp.dao.exception.UserDAOException;
 import gr.aueb.cf.schoolapp.model.User;
 import gr.aueb.cf.schoolapp.security.SecUtil;

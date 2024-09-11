@@ -84,7 +84,7 @@ public class TeacherDAOImpl implements ITeacherDAO {
     public Teacher getById(Integer id) throws TeacherDAOException {
         String sql = "SELECT * FROM teachers where id = ?";
         Teacher teacher = null;
-        ResultSet rs;
+        ResultSet rs;                                                   // Represents a List in memory
 
         try (Connection connection = DBUtil.getConnection();
              PreparedStatement ps = connection.prepareStatement(sql)) {
