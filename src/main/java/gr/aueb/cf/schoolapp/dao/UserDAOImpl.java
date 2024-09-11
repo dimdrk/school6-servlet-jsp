@@ -7,6 +7,7 @@ import gr.aueb.cf.schoolapp.service.util.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDAOImpl implements IUserDAO {
@@ -37,7 +38,27 @@ public class UserDAOImpl implements IUserDAO {
 
     @Override
     public User getByUsername(String username) throws UserDAOException {
-        return null;
+        String sql = "SELECT * FROM users WHERE username = ?";
+        User user = null;
+        ResultSet rs;
+
+        try (Connection connection = DBUtil.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql)) {
+
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                user = new User(rs.getInt("id"),
+                            rs.getString("username"),
+                            rs.getString("password"));
+            }
+            return user;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // logging
+            throw new UserDAOException("SQL error in get user with username: " + username);
+        }
     }
 
     @Override
