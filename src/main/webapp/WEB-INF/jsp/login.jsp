@@ -12,7 +12,6 @@
 <body>
 	<%@ include file="header.jsp"%>
 
-
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
@@ -44,8 +43,6 @@
                 <p>Don't have an account? <a href="${pageContext.request.contextPath}/users/register">Sign up here!</a></p>
             </div>
         </div>
-
-
 
     <%@include file="footer.jsp"%>
 </body>

@@ -6,15 +6,7 @@ public class InsertUserDTO extends BaseUserDTO {
     public InsertUserDTO() {}
 
     public InsertUserDTO(String username, String password, String confirmPassword) {
-        super(username, password);
-        this.confirmPassword = confirmPassword;
+        super(username, password, confirmPassword);
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
 }
