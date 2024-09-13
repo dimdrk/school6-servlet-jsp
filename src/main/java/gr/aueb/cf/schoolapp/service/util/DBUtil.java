@@ -11,7 +11,7 @@ public class DBUtil {
 
     static {
         ds.setUrl("jdbc:mysql://localhost:3306/myschool6db?serverTimeZone=UTC");
-        ds.setUsername("userdb6");
+        ds.setUsername("mydbuser6");
         ds.setPassword(System.getenv("PASS_DB6"));
         ds.setInitialSize(10);
         ds.setMaxTotal(50);
