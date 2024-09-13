@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet("users/register")
+@WebServlet("/users/register")
 public class UserRegisterController extends HttpServlet {
 
     private final IUserDAO userDAO = new UserDAOImpl();
@@ -38,9 +38,9 @@ public class UserRegisterController extends HttpServlet {
         InsertUserDTO insertUserDTO;
         // Data Binding
 
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String confirmPassword = request.getParameter("confirmPassword");
+        String username = request.getParameter("username").trim();
+        String password = request.getParameter("password").trim();
+        String confirmPassword = request.getParameter("confirmPassword").trim();
 
         String errorMessage = "";
         Map<String, String> errors;
