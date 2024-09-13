@@ -7,6 +7,11 @@ public abstract class BaseUserDTO {
 
     public BaseUserDTO() {}
 
+    public BaseUserDTO(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public BaseUserDTO(String username, String password, String confirmPassword) {
         this.username = username;
         this.password = password;
