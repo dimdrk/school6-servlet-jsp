@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
 
-public class GRFilter implements Filter {
+public class GrFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
