@@ -14,6 +14,7 @@ import java.io.IOException;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -27,9 +28,11 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Data binding
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         boolean principleIsAuthenticated = false;
+
         UserLoginDTO userLoginDTO = new UserLoginDTO(username, password);
 
         try {
