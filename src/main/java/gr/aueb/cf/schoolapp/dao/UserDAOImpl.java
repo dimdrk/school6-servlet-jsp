@@ -1,5 +1,6 @@
 package gr.aueb.cf.schoolapp.dao;
 
+import gr.aueb.cf.schoolapp.core.RoleType;
 import gr.aueb.cf.schoolapp.dao.exceptions.UserDAOException;
 import gr.aueb.cf.schoolapp.model.User;
 import gr.aueb.cf.schoolapp.security.SecUtil;
@@ -14,7 +15,7 @@ public class UserDAOImpl implements IUserDAO {
 
     @Override
     public User insert(User user) throws UserDAOException {
-        String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        String sql = "INSERT INTO users (username, password) VALUES (?, ?, ?)";
 
         try (Connection connection = DBUtil.getConnection();
              PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -22,9 +23,12 @@ public class UserDAOImpl implements IUserDAO {
             // Extract model info
             String username = user.getUsername();
             String password = user.getPassword();
+            RoleType role = user.getRoleType();
 
             ps.setString(1, username);
             ps.setString(2, SecUtil.hashPassword(password));
+            ps.setString(3, role.name());
+
 
             ps.executeUpdate();
             // logging
@@ -51,7 +55,8 @@ public class UserDAOImpl implements IUserDAO {
             if (rs.next()) {
                 user = new User(rs.getInt("id"),
                             rs.getString("username"),
-                            rs.getString("password"));
+                            rs.getString("password"),
+                            RoleType.valueOf(rs.getString("role")));
             }
             return user;
         } catch (SQLException e) {
@@ -76,7 +81,8 @@ public class UserDAOImpl implements IUserDAO {
             if (rs.next()) {
                 user = new User(rs.getInt("id"),
                         rs.getString("username"),
-                        rs.getString("password"));
+                        rs.getString("password"),
+                        RoleType.valueOf(rs.getString("role")));
             } else {
                 return false;
             }
