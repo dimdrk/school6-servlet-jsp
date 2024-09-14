@@ -57,7 +57,7 @@ public class TeacherInsertController extends HttpServlet {
             request.setAttribute("firstnameMessage", firstnameMessage);
             request.setAttribute("lastnameMessage", lastnameMessage);
             request.setAttribute("insertDTO", insertDTO);
-            request.getRequestDispatcher("/WEB-INF/jsp/teacher-insert.jsp");  // Δεν επιστρέφουμε τον controller.
+            request.getRequestDispatcher("/WEB-INF/jsp/teacher-insert.jsp").forward(request, response);
             return;
         }
 
