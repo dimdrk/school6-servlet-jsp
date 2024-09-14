@@ -42,7 +42,7 @@
                 <td><a href="${pageContext.request.contextPath}/teachers/delete?id=${teacher.id}"
                        onclick="return confirm('Are you sure you want to delete the teacher?')"><i class="fa-solid fa-trash-can"></i></a></td>
                 <td><a href="${pageContext.request.contextPath}/teachers/update?id=${teacher.id}&firstname=${teacher.firstname}&lastname=${teacher.lastname}"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                <td><a href=""><i class="fa-regular fa-eye"></i></a></td>
+                <td><a href="${pageContext.request.contextPath}/teachers/view?id=${teacher.id}&firstname=${teacher.firstname}&lastname=${teacher.lastname}"><i class="fa-regular fa-eye"></i></a></td>
             </tr>
         </c:forEach>
     </table>
