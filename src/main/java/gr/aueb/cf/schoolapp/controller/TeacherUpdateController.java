@@ -3,7 +3,6 @@ package gr.aueb.cf.schoolapp.controller;
 import gr.aueb.cf.schoolapp.dao.ITeacherDAO;
 import gr.aueb.cf.schoolapp.dao.TeacherDAOImpl;
 import gr.aueb.cf.schoolapp.dao.exceptions.TeacherDAOException;
-import gr.aueb.cf.schoolapp.dto.TeacherInsertDTO;
 import gr.aueb.cf.schoolapp.dto.TeacherReadOnlyDTO;
 import gr.aueb.cf.schoolapp.dto.TeacherUpdateDTO;
 import gr.aueb.cf.schoolapp.model.Teacher;
